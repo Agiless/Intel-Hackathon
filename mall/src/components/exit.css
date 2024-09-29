@@ -3,28 +3,30 @@
     padding: 0;
   }
   
-  body{
-    height:100vh;
-    width:100vw;
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Optional: if you want a background color */
   }
   
   .login-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: calc(100vh - 100px); /* Ensure it takes up the full viewport height minus 100px */
-    width: 80vw; /* Ensure it takes up 80% of the viewport width */
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    max-width: 800px; /* Optional: set a max width for better responsiveness */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
     padding: 20px;
-    position: absolute; /* Position the box absolutely */
-    top: 50px; /* Move the box 50px from the top */
-    left: 10vw; /* Move the box 10% from the left */
-    background-color: #333; /* Add a background color to the box */
-    color: #fff; /* Change the text color to white */
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for better readability */
+    color: #fff;
+    border-radius: 8px; /* Optional: rounded corners */
   }
   
   .text-content {

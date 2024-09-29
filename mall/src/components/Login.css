@@ -1,0 +1,81 @@
+/* General styling */
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./images/download.jpeg");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.login-container {
+  background: #121232;
+  border-radius: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+}
+
+
+
+h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Input fields */
+.input-field {
+  margin: 15px 0;
+  width: 300px;
+}
+
+.input-field input, .password-wrapper input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2e2e5e; /* Darker background */
+  color: white; /* Light text for visibility */
+  font-size: 14px;
+  outline: none; /* Removes the default focus highlight */
+}
+
+.input-field input::placeholder, .password-wrapper input::placeholder {
+  color: #bbb; /* Lighter text color for placeholders */
+}
+
+.input-field input:focus, .password-wrapper input:focus {
+  background-color: #3e3e7e; /* Slightly lighter background on focus */
+}
+
+/* Login button */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff5858, #f857a6);
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.login-button:hover {
+  background: linear-gradient(90deg, #f857a6, #ff5858);
+}
+
+
+

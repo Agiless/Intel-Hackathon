@@ -1,0 +1,33 @@
+/* src/components/VideoBackground.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-background {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Full height */
+    overflow: hidden;
+}
+
+video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; /* This maintains the aspect ratio */
+    height: auto; /* This maintains the aspect ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the video */
+    color: white; /* Change text color for visibility */
+    text-align: center;
+    padding: 20px;
+}

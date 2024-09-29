@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './exit.css';
 
 const EntryPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isFinalPage, setIsFinalPage] = useState(false);
   const [selectedContainer, setSelectedContainer] = useState(null); // Track selected container
+  const navigate = useNavigate();
 
   // Pages content with specific background images
   const pages = [
@@ -52,8 +54,11 @@ const EntryPage = () => {
     setSelectedContainer(containerId);
   };
 
+  const handleFinishClick = () => {
+    navigate('/login'); // Navigate to LoginPage when Finish button is clicked
+  };
+
   return (
-    <body>
     <div className="login-container" style={{ backgroundImage: `url(${isFinalPage ? nextContent.imgSrc : pages[currentPage].imgSrc})` }}>
       <div className="text-content">
         <h1 className="login-title">{isFinalPage ? nextContent.title : pages[currentPage].title}</h1>
@@ -62,7 +67,6 @@ const EntryPage = () => {
 
       {isFinalPage ? (
         <>
-        
           <div className="square-container">
             {/* First Square */}
             <div 
@@ -85,7 +89,7 @@ const EntryPage = () => {
           <div className="finish-button-container">
             <button 
               className={`finish-button ${!selectedContainer ? 'disabled' : ''}`} 
-              onClick={() => selectedContainer && alert('Process Finished!')}
+              onClick={handleFinishClick}
               disabled={!selectedContainer} // Disabled when no container is selected
             >
               Finish
@@ -115,7 +119,7 @@ const EntryPage = () => {
             <div className="finish-button-container">
               <button 
                 className={`finish-button ${!selectedContainer ? 'disabled' : ''}`} 
-                onClick={() => selectedContainer && alert('Process Finished!')}
+                onClick={handleFinishClick}
                 disabled={!selectedContainer} // Disabled when no container is selected
               >
                 Finish
@@ -131,7 +135,6 @@ const EntryPage = () => {
         </div>
       )}
     </div>
-    </body>
   );
 };
 

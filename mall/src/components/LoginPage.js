@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import './Login.css';
 
 const LoginPage = () => {
@@ -9,7 +8,7 @@ const LoginPage = () => {
   const [control, setControl] = useState(0);
   const [message, setMessage] = useState({});
   const [OTP, setOTP] = useState('');
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleClick = (event) => {
     event.preventDefault(); // Prevent form submission or page reload
@@ -62,7 +61,7 @@ const LoginPage = () => {
     // Check if OTP matches
     if (OTP.trim() === String(message.otp).trim()) {
       alert("OTP verified successfully");
-      navigate('/main'); // Go back to login
+      //navigate('/main'); // Go back to login
     } else {
       alert("Wrong OTP!!!");
     }

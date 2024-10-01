@@ -13,17 +13,17 @@ const EntryPage = () => {
     {
       title: "Accept Incoming Multiple Source",
       description: "Lorem ipsum dolor sit amet consectetur. Feugiat dis diam quam urna lectus.",
-      imgSrc: "control.jpg"
+      imgSrc: "image1.png"
     },
     {
       title: "Connect Seamlessly",
       description: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-      imgSrc: "escape.jpg"
+      imgSrc: "image2.png"
     },
     {
       title: "Real-time Data Sync",
       description: "Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      imgSrc: "control.jpg"
+      imgSrc: "image3.png"
     }
   ];
 

@@ -17,7 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80vw;
+    width: 100vw;
+    height : 100vh;
     max-width: 800px; /* Optional: set a max width for better responsiveness */
     background-size: cover;
     background-position: center;
@@ -26,7 +27,9 @@
     padding: 20px;
     background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for better readability */
     color: #fff;
-    border-radius: 8px; /* Optional: rounded corners */
+    border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size:cover; /* Optional: rounded corners */
   }
   
   .text-content {
@@ -51,7 +54,7 @@
     align-items: center;
     width: 100%;
     max-width: 300px;
-    margin-top: 30px;
+    margin-top: 50vh;
   }
   
   .arrow-left, .arrow-right {

@@ -15,17 +15,19 @@ body {
   background-repeat: no-repeat;
 }
 
-.login-container {
+.login-container-login {
   background: #121232;
   border-radius: 32px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
-  width: 90%;
+  max-width: 350px;
+  max-height: 300px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   opacity: 0.9;
 }
+
 
 
 

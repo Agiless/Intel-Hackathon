@@ -1,26 +1,35 @@
-/* src/components/LoginScreen.css */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
-  body, html {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Optional: if you want a background color */
   }
   
   .login-container {
-    display: grid;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-size: cover; /* Cover the container */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* No repeat */
+    width: 100vw;
+    height : 100vh;
+    max-width: 800px; /* Optional: set a max width for better responsiveness */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     padding: 20px;
-    position: relative;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for better readability */
+    color: #fff;
+    border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size:cover; /* Optional: rounded corners */
   }
   
   .text-content {
@@ -45,7 +54,7 @@
     align-items: center;
     width: 100%;
     max-width: 300px;
-    margin-top: 30px;
+    margin-top: 50vh;
   }
   
   .arrow-left, .arrow-right {
@@ -89,18 +98,18 @@
       font-size: 12px;
     }
   }
-
-  /* Add this to your existing CSS */
-.go{
-  display:flex;
-  justify-content: center;
-}
-.go-button {
-    background-color: #4CAF50; /* Green color */
+  
+  /* Button Styles */
+  .go {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .go-button {
+    background-color: #4CAF50;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    padding: 10px 20px;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -114,50 +123,77 @@
   
   .arrow-left.inactive {
     opacity: 0.6;
-    cursor: not-allowed; 
+    cursor: not-allowed;
+  }
+  
+  /* Updated styles for the final page */
+  .square-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    height: 70vh;
+  }
+  
+  
+  .square {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border 0.3s ease;
+  }
+  
+  .square.selected {
+    border-color: green; /* Change border to green when selected */
+  }
+  
+  .square p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .Mega {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+  }
+  
+  /* Centering the Finish button at the bottom */
+  .finish-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Ensure it stays at the bottom */
+  }
+  
+  .finish-button {
+    background-color: #4CAF50; /* Green color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .finish-button:hover {
+    background-color: #45a049;
   }
 
-  /* Container for the circles, centering them on the page */
-
-
-/* Square container styles */
-.square-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 20px;
-  height:70vh;
-}
-
-.square {
-  width: 150px;
-  height: 150px;
-  border: 2px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: border 0.3s ease;
-}
-
-.square.selected {
-  border-color: green; /* Change border to green when selected */
-}
-
-.square p {
-  font-size: 16px;
-  color: #333;
-}
-
-.Mega{
-  display:flex;
-  justify-content: center;
-  height:100vh;
-  width:100vw;
-  flex-direction:row;
-}
-
-
-
-
+  /* Disabled button styling */
+.finish-button.disabled {
+    background-color: #ccc; /* Grey when disabled */
+    cursor: not-allowed;
+  }
+  
+  .finish-button:disabled {
+    background-color: #ccc; /* Grey background when disabled */
+    cursor: not-allowed;
+  }

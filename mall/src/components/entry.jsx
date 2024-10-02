@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './exit.css';
+import './entry.css';
 
 const EntryPage = () => {
   const [currentPage, setCurrentPage] = useState(0);

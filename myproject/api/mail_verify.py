@@ -2,15 +2,14 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-# Replace with your SendGrid API key
 SENDGRID_API_KEY = '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'
 
-def send_email(recipient_email, subject, content):
+def send_email(recipient_email, content, subject="Verification for mall app"):
     message = Mail(
-        from_email='agilessshobika@gmail.com',  # Replace with your verified SendGrid email
+        from_email='agilessshobika@gmail.com',  
         to_emails=recipient_email,
         subject=subject,
-        plain_text_content=content
+        plain_text_content=f"Your OPT is {content}"
     )
     
     try:
@@ -20,12 +19,9 @@ def send_email(recipient_email, subject, content):
     except Exception as e:
         print(f"Error sending email: {e}")
 
-# Usage
-recipient_email = "nakul10905@gmail.com"  # Replace with recipient's email
-subject = "Toy Delivery!!"
-content = "62 inch toy arriving soon!!!"
 
-send_email(recipient_email, subject, content)
+
+
 
 
 

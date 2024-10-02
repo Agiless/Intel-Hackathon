@@ -63,6 +63,7 @@ const LoginPage = () => {
         } else {
           console.log(data.response);
           if (data.response === 'verified') {
+            setOwnerName(data.name)
             alert('Shop already verified. Redirecting to main page...');
             navigate('/main', { state: { ownerName } });
           } else {
@@ -89,56 +90,97 @@ const LoginPage = () => {
 
   if (control === 0) {
     return (
-      <div class="login-page-sales">
-  <div class="login-container-sales">
-    <h2>Shop Registration</h2>
-    <form class="login-form">
-      <div class="form-group">
-        <div class="input-field">
-          <input type="text" id="owner-name" placeholder="Owner Name" required />
+      <div className="login-page-sales">
+        <div className="login-container-sales">
+          <h2>Shop Registration</h2>
+          <form className="login-form" onSubmit={handleClick}>
+            <div className="form-group">
+              <div className="input-field">
+                <input
+                  type="text"
+                  id="owner-name"
+                  placeholder="Owner Name"
+                  value={ownerName}
+                  onChange={(e) => setOwnerName(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-field">
+                <select
+                  id="shop-domain"
+                  value={shopDomain}
+                  onChange={(e) => setShopDomain(e.target.value)}
+                  required
+                >
+                  <option value="">Select Shop Domain</option>
+                  <option value="Clothing">Clothing</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Grocery">Grocery</option>
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-field">
+                <input
+                  type="text"
+                  id="shop-contact"
+                  placeholder="Shop Contact Number"
+                  value={shopContactNumber}
+                  onChange={(e) => setShopContactNumber(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="textarea-field">
+                <textarea
+                  id="shop-description"
+                  placeholder="Shop Description"
+                  value={shopDescription}
+                  onChange={(e) => setShopDescription(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-field">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-field">
+                <input
+                  type="text"
+                  id="gst-id"
+                  placeholder="GST ID"
+                  value={gstId}
+                  onChange={(e) => setGstId(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <button className="login-button" type="submit">
+              Send OTP
+            </button>
+          </form>
         </div>
       </div>
-      <div class="form-group">
-        <div class="input-field">
-          <select id="shop-domain">
-            <option>Select Shop Domain</option>
-            <option>Clothing</option>
-            <option>Electronics</option>
-            <option>Grocery</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-field">
-          <input type="text" id="shop-contact" placeholder="Shop Contact Number" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="textarea-field">
-          <textarea id="shop-description" placeholder="Shop Description"></textarea>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-field">
-          <input type="email" id="email" placeholder="Email" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-field">
-          <input type="text" id="gst-id" placeholder="GST ID" required />
-        </div>
-      </div>
-      <button class="login-button">Send OTP</button>
-    </form>
-  </div>
-</div>
-
     );
   } else if (control === 1) {
     return (
       <div>
         <h1>Enter OTP</h1>
-        <form>
+        <form onSubmit={handleOTPSubmit}>
           <input
             type="text"
             value={OTP}
@@ -146,7 +188,7 @@ const LoginPage = () => {
             onChange={(e) => setOTP(e.target.value)}
             required
           />
-          <button onClick={handleOTPSubmit}>Submit OTP</button>
+          <button type="submit">Submit OTP</button>
         </form>
       </div>
     );

@@ -6,7 +6,7 @@ import './BotPage.css';
 
 const BotPage = () => {
     const location = useLocation();
-    const {username} = location.state ? location.state : "Guest#" + String(Math.floor(1000 + Math.random() * 9000));
+    const { username } = location.state || { username: "Guest#" + String(Math.floor(1000 + Math.random() * 9000)) };
     const handleTalkClick = () => {
         alert("Navigating to Talk with Bot..."); // You can replace this with actual navigation
     };

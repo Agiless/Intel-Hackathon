@@ -12,12 +12,16 @@ const BotPage = () => {
     };
 
     const handleChatClick = () => {
+
         alert("Navigating to Chat with Bot...");
+        window.location.href = 'http://your-streamlit-app-url';
     };
 
     const handleSearchClick = () => {
         alert("Navigating to Search by Image...");
     };
+
+
 
     return (
         <div className="bot-page">

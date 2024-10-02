@@ -6,6 +6,7 @@ const EntryPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isFinalPage, setIsFinalPage] = useState(false);
   const [selectedContainer, setSelectedContainer] = useState(null); // Track selected container
+  const [containerId, setid] = useState(0);
   const navigate = useNavigate();
 
   // Pages content with specific background images
@@ -50,12 +51,18 @@ const EntryPage = () => {
   };
 
   // Handle selection of square container
-  const handleContainerClick = (containerId) => {
-    setSelectedContainer(containerId);
+  const handleContainerClick = (c) => {
+    setSelectedContainer(c);
+    setid(c);
   };
 
   const handleFinishClick = () => {
-    navigate('/login'); // Navigate to LoginPage when Finish button is clicked
+    if (containerId===1){
+      navigate('/login');
+    }else{
+      navigate('/sales');
+    }
+     // Navigate to LoginPage when Finish button is clicked
   };
 
   return (

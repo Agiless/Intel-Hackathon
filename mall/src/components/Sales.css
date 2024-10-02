@@ -1,0 +1,123 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-page-sales {
+    background-image: url("./images/download.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .login-container-sales {
+    background: #121232;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 620px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    height:100vh;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  /* Input fields styling */
+  .input-field {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .input-field input,
+  .input-field select,
+  .textarea-field textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2e2e5e;
+    color: white;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .input-field input::placeholder,
+  .input-field select::placeholder,
+  .textarea-field textarea::placeholder {
+    color: #bbb;
+  }
+  
+  .input-field input:focus,
+  .input-field select:focus,
+  .textarea-field textarea:focus {
+    background-color: #3e3e7e;
+    max-height: fit-content;
+  }
+  
+  .textarea-field textarea {
+    width: 100%; /* Ensure it takes full width */
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2e2e5e;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    resize: none; /* To prevent resizing */
+  }
+
+  .textarea-field {
+    width: 100%; /* Make sure the container has full width */
+  }
+  
+  
+  /* Submit button styling */
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #ff5858, #f857a6);
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(90deg, #f857a6, #ff5858);
+  }
+  
+  /* Adjust spacing for better layout */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 5px;
+  }
+  

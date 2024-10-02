@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Sales.css';
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
+  const [ownerName, setOwnerName] = useState('');
+  const [shopDomain, setShopDomain] = useState(''); // For dropdown selection
+  const [shopContactNumber, setShopContactNumber] = useState('');
+  const [shopDescription, setShopDescription] = useState('');
+  const [email, setEmail] = useState('');
+  const [gstId, setGstId] = useState('');
   const [error, setError] = useState('');
-  const [control, setControl] = useState(0); // 0 for login page, 1 for OTP page
-  const [message, setMessage] = useState({}); // To store the response from the backend
+  const [control, setControl] = useState(0); // 0 for form, 1 for OTP page
+  const [message, setMessage] = useState({});
   const [OTP, setOTP] = useState('');
   const navigate = useNavigate();
 
   const handleClick = (event) => {
-    event.preventDefault(); // Prevent form submission or page reload
+    event.preventDefault();
 
-    // Check if fields are empty
-    if (!username || !mobileNumber) {
-      setError('Both fields are required.');
+    // Check if all fields are filled
+    if (!ownerName || !shopDomain || !shopContactNumber || !shopDescription || !email || !gstId) {
+      setError('All fields are required.');
       return;
     }
 
-    // Optional: Check if mobile number is valid
-    const mobileRegex = /^[0-9]{10}$/; // Simple regex for a 10-digit number
-    if (!mobileRegex.test(mobileNumber)) {
-      setError('Please enter a valid mobile number.');
+    // Validate the contact number
+    const contactRegex = /^[0-9]{10}$/;
+    if (!contactRegex.test(shopContactNumber)) {
+      setError('Please enter a valid 10-digit shop contact number.');
+      return;
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
       return;
     }
 
@@ -31,14 +42,18 @@ const LoginPage = () => {
     setError('');
 
     // Send the POST request to the Django backend
-    fetch('http://127.0.0.1:8000/api/create-product/', {
+    fetch('http://127.0.0.1:8000/api/create-shop/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: username,
-        mobile_number: mobileNumber, // price is treated as the mobile number in this structure
+        owner_name: ownerName,
+        shop_domain: shopDomain,
+        shop_contact_number: shopContactNumber,
+        shop_description: shopDescription,
+        email: email,
+        gst_id: gstId,
       }),
     })
       .then((response) => response.json())
@@ -46,13 +61,12 @@ const LoginPage = () => {
         if (data.error) {
           setError(data.error);
         } else {
-          // Handle if the number is verified or if OTP is sent
-          console.log(data.response,12345)
+          console.log(data.response);
           if (data.response === 'verified') {
-            alert('Number already verified. Redirecting to main page...');
-            navigate('/main', { state: { username } }); // Redirect directly to the main page if verified
+            alert('Shop already verified. Redirecting to main page...');
+            navigate('/main', { state: { ownerName } });
           } else {
-            setMessage(data); // Store the OTP or any other response data
+            setMessage(data);
             setControl(1); // Move to the OTP input page
           }
         }
@@ -65,55 +79,62 @@ const LoginPage = () => {
 
   const handleOTPSubmit = (event) => {
     event.preventDefault();
-
-    // Check if OTP matches the one from the backend response
     if (OTP.trim() === String(message.otp).trim()) {
       alert('OTP verified successfully');
-      navigate('/main', { state: { username } }); // Navigate to the main page upon successful OTP verification
+      navigate('/main', { state: { ownerName } });
     } else {
       alert('Wrong OTP!');
     }
   };
 
   if (control === 0) {
-    // Render the login form
     return (
-      <div className="login-page">
-        <div className="login-container-login">
-          <h2>Login</h2>
-          <form className="login-form">
-            <div className="input-field">
-              <input
-                type="text"
-                id="login"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)} // Track username
-                required
-              />
-            </div>
-            <div className="input-field password-field">
-              <div className="password-wrapper">
-                <input
-                  type="text"
-                  id="mobile"
-                  placeholder="Mobile number"
-                  value={mobileNumber}
-                  onChange={(e) => setMobileNumber(e.target.value)} // Track mobile number
-                  required
-                />
-              </div>
-            </div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button className="login-button" onClick={handleClick}>
-              Verify
-            </button>
-          </form>
+      <div class="login-page-sales">
+  <div class="login-container-sales">
+    <h2>Shop Registration</h2>
+    <form class="login-form">
+      <div class="form-group">
+        <div class="input-field">
+          <input type="text" id="owner-name" placeholder="Owner Name" required />
         </div>
       </div>
+      <div class="form-group">
+        <div class="input-field">
+          <select id="shop-domain">
+            <option>Select Shop Domain</option>
+            <option>Clothing</option>
+            <option>Electronics</option>
+            <option>Grocery</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-field">
+          <input type="text" id="shop-contact" placeholder="Shop Contact Number" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="textarea-field">
+          <textarea id="shop-description" placeholder="Shop Description"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-field">
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-field">
+          <input type="text" id="gst-id" placeholder="GST ID" required />
+        </div>
+      </div>
+      <button class="login-button">Send OTP</button>
+    </form>
+  </div>
+</div>
+
     );
   } else if (control === 1) {
-    // Render the OTP input form
     return (
       <div>
         <h1>Enter OTP</h1>
@@ -122,7 +143,7 @@ const LoginPage = () => {
             type="text"
             value={OTP}
             placeholder="Enter OTP"
-            onChange={(e) => setOTP(e.target.value)} // Track OTP input
+            onChange={(e) => setOTP(e.target.value)}
             required
           />
           <button onClick={handleOTPSubmit}>Submit OTP</button>

@@ -3,11 +3,11 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 # Replace with your SendGrid API key
-SENDGRID_API_KEY = 'YOUR_SENDGRID_API_KEY'
+SENDGRID_API_KEY = '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'
 
 def send_email(recipient_email, subject, content):
     message = Mail(
-        from_email='your_email@example.com',  # Replace with your verified SendGrid email
+        from_email='agilessshobika@gmail.com',  # Replace with your verified SendGrid email
         to_emails=recipient_email,
         subject=subject,
         plain_text_content=content
@@ -21,8 +21,33 @@ def send_email(recipient_email, subject, content):
         print(f"Error sending email: {e}")
 
 # Usage
-recipient_email = "recipient@example.com"  # Replace with recipient's email
-subject = "Test Email from SendGrid"
-content = "This is a test email sent using SendGrid."
+recipient_email = "nakul10905@gmail.com"  # Replace with recipient's email
+subject = "Toy Delivery!!"
+content = "62 inch toy arriving soon!!!"
 
 send_email(recipient_email, subject, content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

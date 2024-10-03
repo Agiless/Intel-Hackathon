@@ -25,7 +25,7 @@ def create_product(request):
         new_user.save()
         
         # Send OTP via Twilio
-        send_sms_via_twilio(f"+91{mobile_number}", f"Your OTP is {otp}")
+        send_sms_via_twilio(f"+91{9791957112}", f"Your OTP is {otp}")
         
         return Response({'otp': otp, 'name': name, 'mobile_number': mobile_number}, status=status.HTTP_201_CREATED)
 

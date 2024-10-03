@@ -1,6 +1,10 @@
 // src/MallPathFinder.js
 import React, { useState } from 'react';
 import "./map.css";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+
+
 // Breadth-First Search to find the shortest path and detect floor changes
 const findShortestPathWithFloors = (graph, start, end) => {
   let queue = [[start]]; // Initialize queue with the starting node
@@ -94,7 +98,8 @@ const MallPathFinder = () => {
   };
 
   return (
-    <div>
+
+    <div style={{backgroundColor:"black"}}>
       <h1>Mall Path Finder</h1>
 
       {/* Start Point Input */}
@@ -143,8 +148,33 @@ const MallPathFinder = () => {
       ) : (
         <div>No path found</div>
       )}
+    <div className="dd"><App/></div>
     </div>
   );
 };
+
+
+
+
+
+// Component to load and render the 3D model
+function Model() {
+  const gltf = useGLTF('mall6.glb'); // Path to your .glb file in public folder
+  return <primitive object={gltf.scene} scale={0.5} />;
+}
+
+function App() {
+  return (
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Canvas>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <Model />
+        <OrbitControls />  {/* Allows you to move around the model */}
+      </Canvas>
+    </div>
+  );
+}
+
 
 export default MallPathFinder;

@@ -16,7 +16,7 @@ const BotPage = () => {
     const handleChatClick = () => {
 
         alert("Navigating to Chat with Bot...");
-        window.location.href = 'http://your-streamlit-app-url';
+        window.location.href = 'http://localhost:8501';
     };
 
     const handleSearchClick = () => {

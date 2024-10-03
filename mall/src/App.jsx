@@ -15,12 +15,10 @@ function App() {
         <Route  path="/main" element={<Page />} />
         <Route  path="/sales" element={<Sales />} />
         <Route  path="/map" element={<Map />} />
+        <Route  path="/map" element={<Map />} />
       </Routes>
     </Router>
-  );
-  return (
-    <Mappper />
-  )
-}
+  )};
+
 
 export default App;

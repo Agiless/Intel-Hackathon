@@ -7,7 +7,7 @@ import Map from "./components/map";
 import Mappper from "./components/blender";
 
 function App() {
-  /*return (
+  return (
     <Router>
       <Routes>
         <Route  path="/" element={<Main />} />
@@ -15,12 +15,11 @@ function App() {
         <Route  path="/main" element={<Page />} />
         <Route  path="/sales" element={<Sales />} />
         <Route  path="/map" element={<Map />} />
+        <Route  path="/map" element={<Map />} />
       </Routes>
     </Router>
-  );*/
-  return (
-    <Mappper />
-  )
+  );
+
 }
 
 export default App;

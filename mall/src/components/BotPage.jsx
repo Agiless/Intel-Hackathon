@@ -2,10 +2,12 @@ import React from 'react';
 import { FaRobot, FaImage, FaCommentDots } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md'; // Import for arrow icons
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './BotPage.css';
 
 const BotPage = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const { username } = location.state || { username: "Guest#" + String(Math.floor(1000 + Math.random() * 9000)) };
     const handleTalkClick = () => {
         alert("Navigating to Talk with Bot..."); // You can replace this with actual navigation
@@ -18,7 +20,8 @@ const BotPage = () => {
     };
 
     const handleSearchClick = () => {
-        alert("Navigating to Search by Image...");
+        alert("Navigating to Map page...");
+        navigate("/map");
     };
 
 
@@ -56,7 +59,7 @@ const BotPage = () => {
                         </div>
                         <div className="option search" onClick={handleSearchClick}>
                             <FaImage className="icon" />
-                            <span>Search by Image</span>
+                            <span>Mall map</span>
                             <MdArrowForward className="arrow-icon" />
                         </div>
                     </div>

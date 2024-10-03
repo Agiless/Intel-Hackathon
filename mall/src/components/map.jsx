@@ -1,6 +1,6 @@
 // src/MallPathFinder.js
 import React, { useState } from 'react';
-
+import "./map.css";
 // Breadth-First Search to find the shortest path and detect floor changes
 const findShortestPathWithFloors = (graph, start, end) => {
   let queue = [[start]]; // Initialize queue with the starting node
@@ -124,7 +124,7 @@ const MallPathFinder = () => {
 
       {/* Display the path */}
       {path.length > 0 ? (
-        <div>
+        <div style={{color:"black"}}>
           <h2>Shortest Path:</h2>
           <ul>
             {path.map((location, index) => {

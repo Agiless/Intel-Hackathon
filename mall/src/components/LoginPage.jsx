@@ -78,39 +78,49 @@ const LoginPage = () => {
   if (control === 0) {
     // Render the login form
     return (
-      <div className="login-page">
-        <div className="login-container-login">
-          <h2>Login</h2>
-          <form className="login-form">
-            <div className="input-field">
+      <div className='whole-head' style={{backgroundColor: 'black'}}>
+        <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"></link>
+    
+        </head>
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div>
+        <form>
+            <h3>Login Here</h3>
+            
+            <label for="username">Username</label>
               <input
                 type="text"
-                id="login"
-                placeholder="Username"
+                id="username"
+                placeholder="Phone number"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)} // Track username
                 required
               />
-            </div>
-            <div className="input-field password-field">
-              <div className="password-wrapper">
+            
+        
+              <label for="password">Password</label>
                 <input
                   type="text"
-                  id="mobile"
+                  id="password"
                   placeholder="Mobile number"
                   value={mobileNumber}
                   onChange={(e) => setMobileNumber(e.target.value)} // Track mobile number
                   required
                 />
-              </div>
-            </div>
+              
+            
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button className="login-button" onClick={handleClick}>
+            <button onClick={handleClick}>
               Verify
             </button>
           </form>
-        </div>
-      </div>
+          </div>
+      
     );
   } else if (control === 1) {
     // Render the OTP input form

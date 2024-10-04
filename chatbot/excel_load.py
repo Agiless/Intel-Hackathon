@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import UnstructuredExcelLoader,UnstructuredCSVLoader
 import glob
 import pandas as pd
-path = r"C:\Hackathon\Intel\git\Intel-Hackathon\chatbot\dataset"
+path = r"C:\Users\Agiless Bakthaparan\Documents\Intel-Hackathon\chatbot\dataset"
 file_list = glob.glob(path+"/*.xlsx")
 data_list = []
 for file in file_list:

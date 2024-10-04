@@ -16,7 +16,7 @@ const BotPage = () => {
     const handleChatClick = () => {
 
         alert("Navigating to Chat with Bot...");
-        window.location.href = 'http://localhost:8501';
+        navigate("/chat");
     };
 
     const handleSearchClick = () => {

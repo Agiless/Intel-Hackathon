@@ -1,41 +1,35 @@
+
 // src/MallPathFinder.js
 import React, { useState } from 'react';
 import "./map.css";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
-
 // Breadth-First Search to find the shortest path and detect floor changes
 const findShortestPathWithFloors = (graph, start, end) => {
-  let queue = [[start]]; // Initialize queue with the starting node
-  let visited = new Set(); // Set to keep track of visited nodes
+  let queue = [[start]];
+  let visited = new Set();
 
   while (queue.length > 0) {
-    let path = queue.shift(); // Get the current path
-    let node = path[path.length - 1]; // Get the last node from the path
+    let path = queue.shift();
+    let node = path[path.length - 1];
 
-    // If the current node is the destination, return the path
-    if (node === end) {
-      return path;
-    }
+    if (node === end) return path;
 
-    // If the node has not been visited
     if (!visited.has(node)) {
       visited.add(node);
-
-      // Enqueue paths to neighboring nodes
       for (let neighbor of graph[node]?.connections || []) {
         if (!visited.has(neighbor)) {
-          queue.push([...path, neighbor]); // Create a new path including the neighbor
+          queue.push([...path, neighbor]);
         }
       }
     }
   }
 
-  return []; // Return empty if no path found
+  return [];
 };
 
-// Define the mall graph with floor information and connections
+// Mall graph remains unchanged
 const mallGraph = {
   "Nike": { floor: 0, connections: ["Puma", "Skechers", "Reebok"] },
   "Puma": { floor: 0, connections: ["Nike", "Reebok", "Staircase1", "Skechers"] },
@@ -83,13 +77,11 @@ const mallGraph = {
   "Staircase2": { floor: "multi", connections: ["The Concourse", "Maintenance Area", "ZARA", "Starbucks", "Woodland", "Washroom", "US Polo", "Atrium"] },
   "Elevator": { floor: "multi", connections: ["Maintenance Area", "Display Area", "Woodland", "Gucci", "Cafe Noir", "US Polo", "Washroom", "Tanishq", "Titan"] }
 };
-
 const MallPathFinder = () => {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [path, setPath] = useState([]);
 
-  // Handler to find the shortest path and detect floor changes
   const handleFindPath = () => {
     if (start && end) {
       const shortestPath = findShortestPathWithFloors(mallGraph, start, end);
@@ -98,44 +90,40 @@ const MallPathFinder = () => {
   };
 
   return (
-
-    <div style={{backgroundColor:"black"}}>
+    <div className="pathfinder-container">
       <h1>Mall Path Finder</h1>
 
-      {/* Start Point Input */}
-      <label>
-        Start Point:
-        <input
-          type="text"
-          value={start}
-          onChange={(e) => setStart(e.target.value)}
-          placeholder="Enter Start Point"
-        />
-      </label>
+      <div className="input-container">
+        <label>
+          Start Point:
+          <input
+            type="text"
+            value={start}
+            onChange={(e) => setStart(e.target.value)}
+            placeholder="Enter Start Point"
+          />
+        </label>
 
-      {/* End Point Input */}
-      <label>
-        End Point:
-        <input
-          type="text"
-          value={end}
-          onChange={(e) => setEnd(e.target.value)}
-          placeholder="Enter End Point"
-        />
-      </label>
+        <label>
+          End Point:
+          <input
+            type="text"
+            value={end}
+            onChange={(e) => setEnd(e.target.value)}
+            placeholder="Enter End Point"
+          />
+        </label>
 
-      {/* Button to find path */}
-      <button onClick={handleFindPath}>Find Path</button>
+        <button onClick={handleFindPath}>Find Path</button>
+      </div>
 
-      {/* Display the path */}
       {path.length > 0 ? (
-        <div style={{color:"black"}}>
+        <div className="path-display">
           <h2>Shortest Path:</h2>
           <ul>
             {path.map((location, index) => {
               const floorChange =
-                index > 0 &&
-                mallGraph[location].floor !== mallGraph[path[index - 1]].floor;
+                index > 0 && mallGraph[location].floor !== mallGraph[path[index - 1]].floor;
 
               return (
                 <li key={index}>
@@ -146,35 +134,31 @@ const MallPathFinder = () => {
           </ul>
         </div>
       ) : (
-        <div>No path found</div>
+        <div className="no-path">No path found</div>
       )}
-    <div className="dd"><App/></div>
+
+      <div className="dd"><App /></div>
     </div>
   );
 };
 
-
-
-
-
 // Component to load and render the 3D model
 function Model() {
-  const gltf = useGLTF('mallauto.glb'); // Path to your .glb file in public folder
+  const gltf = useGLTF('mallfinal.glb');
   return <primitive object={gltf.scene} scale={0.5} />;
 }
 
 function App() {
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div className="model-container">
       <Canvas>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Model />
-        <OrbitControls />  {/* Allows you to move around the model */}
+        <OrbitControls />
       </Canvas>
     </div>
   );
 }
-
 
 export default MallPathFinder;

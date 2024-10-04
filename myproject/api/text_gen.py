@@ -12,7 +12,7 @@ load_dotenv()
 model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 chat_history = []
-loader = DirectoryLoader(r"C:\Hackathon\Intel\git\Intel-Hackathon\chatbot\books",loader_cls=CSVLoader)
+loader = DirectoryLoader(r"C:\Users\Agiless Bakthaparan\Documents\Intel-Hackathon\chatbot\books",loader_cls=CSVLoader)
 docs = loader.load_and_split()
 #text to chunks splitting
 text_split = CharacterTextSplitter(chunk_size=1000,chunk_overlap=0)

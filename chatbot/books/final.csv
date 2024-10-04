@@ -1,0 +1,18 @@
+store,product,quantity,price,category,information,store 
+kfc,chicken wings,3 pieces,200,food,best chicken downtown,
+kfc,chicken nuggets,9 piecs,230,food,best chicken downtown,
+kfc,chicken bucket large,7 pieces,399,food,best chicken downtown,
+kfc,chicken bucket medium,4 pieces,299,food,best chicken downtown,
+kfc,french fries,1 bag,180,food,best chicken downtown,
+kfc,"Beverages (coke,pepsi,7up,mountain dew,miranda)",1 cup,50,drinks,best chicken downtown,
+puma,running shoes,20,1099,sports&fitness,very comfortable best for running,
+puma,cricket shoes,12,999,sports&fitness,very comfortable best for running,
+puma,football,34,899,sports&fitness,fifa match ball,
+puma,football boots,12,1099,sports&fitness,very comfortable best for running,
+puma,slides,20,768,sports&fitness,very comfortable best for walking,
+puma,t-shirt,45,499,sports&fitness,comfy wear,
+,cold coffee,1 cup,199,drinks,best drink spot,starbucks
+,ice tea,1 cup,168,drinks,best drink spot,starbucks
+,bubble tea,1 cup,200,drinks,best drink spot,starbucks
+,macha latte,1 cup,210,drinks,best drink spot,starbucks
+,milkshake,1 cup,205,drinks,best drink spot,starbucks

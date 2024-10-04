@@ -5,7 +5,7 @@ from .otp import send_sms_via_twilio
 from .mail_verify import send_email
 from .models import User, Seller  # Import the User and Seller models
 import random
-
+from .text_gen import response_from_ai,response_from
 @api_view(['POST'])
 def create_product(request):
     name = request.data.get('name')
@@ -60,6 +60,22 @@ def create_shop(request):
         new_seller.save()
 
         # Send email with OTP
-        send_email(email, otp)
+        send_email("paranshobika@gmail.com", otp)
 
         return Response({'otp': otp, 'owner_name': owner_name, 'shop_contact_number': shop_contact_number}, status=status.HTTP_201_CREATED)
+    
+
+@api_view(['POST'])
+def chat(request):
+    q = request.data.get("query")
+    
+    if not q:
+        return Response({"error": "Query not provided"}, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+    result = response_from(q)
+    print("\n\n\n\n doneee",result)
+    return Response({"result": result}, status=status.HTTP_200_OK)
+    #except Exception as e:
+        #logger.error(f"Error in chat API: {e}")
+        #return Response({"error": f"Failed to respond: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

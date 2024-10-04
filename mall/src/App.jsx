@@ -4,7 +4,7 @@ import Main from "./components/entry";
 import Page from "./components/BotPage";
 import Sales from "./components/Sales";
 import Map from "./components/map";
-import Mappper from "./components/blender";
+import Chat from "./components/chatter";
 
 function App() {
   return (
@@ -15,9 +15,10 @@ function App() {
         <Route  path="/main" element={<Page />} />
         <Route  path="/sales" element={<Sales />} />
         <Route  path="/map" element={<Map />} />
-        <Route  path="/map" element={<Map />} />
+        
       </Routes>
     </Router>
+    //<Chat />
   )};
 
 

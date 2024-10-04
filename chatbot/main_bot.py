@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAIEmbeddings
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
-from langchain_pinecone import PineconeVectorStore
 import os
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader,DirectoryLoader,CSVLoader
@@ -9,8 +8,6 @@ from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.vectorstores import VectorStoreRetriever
 from langchain.chains import RetrievalQA
 import streamlit as st
-from google.cloud import firestore
-from langchain_google_firestore import FirestoreChatMessageHistory
 from excel_load import docs_1
 
 #load env variable from .env
@@ -22,7 +19,7 @@ SESSION_ID = "user_session"
 COLLECTION_NAME = "chat_history"
 chat_history = []
     
-loader = DirectoryLoader(r"E:\Intel_Mall\Intel-Hackathon\langchain-bot\books",loader_cls=CSVLoader)
+loader = DirectoryLoader(r"C:\Hackathon\Intel\git\Intel-Hackathon\chatbot\books",loader_cls=CSVLoader)
 docs = loader.load_and_split()
 #text to chunks splitting
 text_split = CharacterTextSplitter(chunk_size=1000,chunk_overlap=0)

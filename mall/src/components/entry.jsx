@@ -12,25 +12,25 @@ const EntryPage = () => {
   // Pages content with specific background images
   const pages = [
     {
-      title: "Accept Incoming Multiple Source",
-      description: "Lorem ipsum dolor sit amet consectetur. Feugiat dis diam quam urna lectus.",
+      title: "Know what is around you!!!",
+      description: "We show the store around you and the stores throughtout the mall.",
       imgSrc: "image1.png"
     },
     {
-      title: "Connect Seamlessly",
-      description: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      title: "Real-time Data Sync",
+      description: "See throught the data of the stores and know the products and their prices.",
       imgSrc: "image2.png"
     },
     {
-      title: "Real-time Data Sync",
-      description: "Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Connect Seamlessly",
+      description: "Immediate response to customers enhancing user experience.",
       imgSrc: "image3.png"
     }
   ];
 
   const nextContent = {
     title: "Welcome to the Next Step",
-    description: "This is the new content after completing all slides.",
+    description: "Choose the side in which you would like to continue.",
     imgSrc: "next.png" // You can add any background for this
   };
 
@@ -80,7 +80,7 @@ const EntryPage = () => {
               className={`square ${selectedContainer === 1 ? 'selected' : ''}`} 
               onClick={() => handleContainerClick(1)}
             >
-              <p>Container 1</p>
+              <p>User Login</p>
             </div>
 
             {/* Second Square */}
@@ -88,7 +88,7 @@ const EntryPage = () => {
               className={`square ${selectedContainer === 2 ? 'selected' : ''}`} 
               onClick={() => handleContainerClick(2)}
             >
-              <p>Container 2</p>
+              <p>Seller Login</p>
             </div>
           </div>
 

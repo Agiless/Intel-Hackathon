@@ -159,7 +159,7 @@ const MallPathFinder = () => {
 
 // Component to load and render the 3D model
 function Model() {
-  const gltf = useGLTF('mall6.glb'); // Path to your .glb file in public folder
+  const gltf = useGLTF('mallauto.glb'); // Path to your .glb file in public folder
   return <primitive object={gltf.scene} scale={0.5} />;
 }
 

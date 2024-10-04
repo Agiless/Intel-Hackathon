@@ -14,7 +14,7 @@ const Chat = () => {
       
       // Simulating an AI response
       setTimeout(() => {
-        const aiMessage = { text: "This is AI's response!", sender: "ai" };
+        const aiMessage = { text: "", sender: "ai" };
         setMessages(prevMessages => [...prevMessages, aiMessage]);
       }, 1000);
       fetch('http://127.0.0.1:8000/api/chat/', {
@@ -32,6 +32,7 @@ const Chat = () => {
             setError(data.error);
           } else {
             console.log(String(data.result));
+            setMessages(prevMessages => [...prevMessages, {text:data.result,sender:"ai"}]);
           }
         })
         .catch((error) => {

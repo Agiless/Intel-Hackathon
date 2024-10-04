@@ -72,6 +72,12 @@ const mallGraph = {
   "Washroom": { floor: 2, connections: ["US Polo", "Staircase2", "Elevator", "Atrium", "Titan"] },
   "Titan": { floor: 2, connections: ["Washroom", "Thriller Room", "Tanishq", "Elevator"] },
 
+  //Third Floor
+  "KK Cinemas" :{floor: 3, connections:["Fun Land"]},
+  "Fun Land" :{floor: 3, connections:["Book Tickets","Elevator","Snacks Counter"]},
+  "Book Tickets" :{floor: 3, connections:["Fun Land","Elevator"]},
+  "Snacks Counter" :{floor: 3, connections:["Fun Land","Elevator"]},
+
   // Combined connections between floors
   "Staircase1": { floor: "multi", connections: ["Burger King", "Puma", "Reebok", "McDonald's", "Lifestyle", "Pantaloons", "KFC", "Anchor Store", "Atrium"] },
   "Staircase2": { floor: "multi", connections: ["The Concourse", "Maintenance Area", "ZARA", "Starbucks", "Woodland", "Washroom", "US Polo", "Atrium"] },
@@ -90,10 +96,10 @@ const MallPathFinder = () => {
   };
 
   return (
-    <div className="pathfinder-container">
+    <div className="pathfinder-container" style={{backgroundColor:'#17153B'}}>
+      <div className="input-container-mega">
       <h1>Mall Path Finder</h1>
-
-      <div className="input-container">
+        <div className="input-container">
         <label>
           Start Point:
           <input
@@ -113,12 +119,13 @@ const MallPathFinder = () => {
             placeholder="Enter End Point"
           />
         </label>
+        </div>
 
-        <button onClick={handleFindPath}>Find Path</button>
-      </div>
+        <button onClick={handleFindPath} style={{width: '120px'}}>Find Path</button>
+      
 
       {path.length > 0 ? (
-        <div className="path-display">
+        <div className="path-display" style={{marginLeft:'210px',justifyContent:'center'}}>
           <h2>Shortest Path:</h2>
           <ul>
             {path.map((location, index) => {
@@ -136,8 +143,10 @@ const MallPathFinder = () => {
       ) : (
         <div className="no-path">No path found</div>
       )}
-
-      <div className="dd"><App /></div>
+      </div>
+      <div className="map-1">
+      <App />
+      </div>
     </div>
   );
 };
@@ -145,14 +154,14 @@ const MallPathFinder = () => {
 // Component to load and render the 3D model
 function Model() {
   const gltf = useGLTF('mallfinal.glb');
-  return <primitive object={gltf.scene} scale={0.5} />;
+  return <primitive object={gltf.scene} scale={1} />;
 }
 
 function App() {
   return (
-    <div className="model-container">
+    <div className="model-container" style={{height:"60vh",width:"100vw",backgroundColor:"#E4B1F0",marginTop:'100px'}}> 
       <Canvas>
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Model />
         <OrbitControls />

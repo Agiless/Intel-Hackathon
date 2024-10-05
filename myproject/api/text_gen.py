@@ -111,7 +111,8 @@ Visiting our mall is easy, no matter where you're coming from. Located convenien
 
 Conclusion
 
-Thank you for considering our mall as your shopping destination. We are committed to providing a remarkable experience for every visitor. Whether you're here to shop, dine, or enjoy entertainment, we look forward to welcoming you. Join us in creating lasting memories and discovering everything our mall has to offer."""
+Thank you for considering our mall as your shopping destination. We are committed to providing a remarkable experience for every visitor. Whether you're here to shop, dine, or enjoy entertainment, we look forward to welcoming you. Join us in creating lasting memories and discovering everything our mall has to offer.
+"""
     chat_history.append(SystemMessage(content=system_message))
 init("","")
 print(123)

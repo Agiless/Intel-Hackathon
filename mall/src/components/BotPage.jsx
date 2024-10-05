@@ -10,7 +10,7 @@ const BotPage = () => {
     const navigate = useNavigate();
     const { username } = location.state || { username: "Guest#" + String(Math.floor(1000 + Math.random() * 9000)) };
     const handleTalkClick = () => {
-        alert("Navigating to Talk with Bot..."); // You can replace this with actual navigation
+        alert("Navigating to Parking Page..."); // You can replace this with actual navigation
     };
 
     const handleChatClick = () => {
@@ -42,7 +42,7 @@ const BotPage = () => {
                 <div className="side-options">
                         <div className="option talk" onClick={handleTalkClick}>
                             <FaRobot className="icon" />
-                            <span>Talk with Bot</span>
+                            <span>Avail ParKing</span>
                             <MdArrowForward className="arrow-icon" />
                         </div>
                         <div className="option mall" onClick={handleSearchClick}>

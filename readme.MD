@@ -41,7 +41,7 @@ Clone the Repository
 
 bash
 Copy code
-git clone https://github.com/yourusername/mall-business-ai.git
+git clone https://github.com/Agiless/Intel-Hackathon/
 cd mall-business-ai
 Frontend Setup (React):
 

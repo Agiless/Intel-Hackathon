@@ -96,7 +96,7 @@ const LoginPage = () => {
               <input
                 type="text"
                 id="username"
-                placeholder="Phone number"
+                placeholder="Your Name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)} // Track username
                 required

@@ -170,7 +170,7 @@ def response_from(query):
         return "Thank you for visiting! Have a great day!"
 
     # Append the human message to the chat history
-    chat_history.append(HumanMessage(content=query))
+    chat_history.append(HumanMessage(content=prompt_input))
     
     # Initialize retriever (using the already loaded FAISS database)
     retriever = db.as_retriever()

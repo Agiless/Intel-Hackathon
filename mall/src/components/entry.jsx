@@ -79,16 +79,18 @@ const EntryPage = () => {
             <div 
               className={`square ${selectedContainer === 1 ? 'selected' : ''}`} 
               onClick={() => handleContainerClick(1)}
+              style={{backgroundColor:'blue',borderRadius: "50%"}}
             >
-              <p>User Login</p>
+              <p style={{color:'black',fontFamily:'arial'}}>User Login</p>
             </div>
 
             {/* Second Square */}
             <div 
               className={`square ${selectedContainer === 2 ? 'selected' : ''}`} 
               onClick={() => handleContainerClick(2)}
+              style={{backgroundColor:'blue',borderRadius: "50%"}}
             >
-              <p>Seller Login</p>
+              <p style={{color:'black',fontFamily:'arial'}}>Seller Login</p>
             </div>
           </div>
 
